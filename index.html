@@ -278,6 +278,8 @@
             
             
             
+                <a href="https://huibiaowen.github.io/feature-preserving-mesh-repair-via-restricted-power-diagram/" target="_blank" rel="noopener" class="resource-btn">Project Page</a>
+            
             
             <!-- <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
@@ -772,6 +774,252 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
                     Wenping Wang
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>
+            
+            <br />
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- <div class="abstract-container">
+                <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
+                <div class="abstract-content">
+                    <span class="abstract-preview"></span>
+                    <span class="collapse" id="">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#" data-toggle="collapse" onclick="toggleText(this)" id="link-">... See More</a>
+                </span>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
+
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
+    text-align: justify;
+}
+
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
+
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
+
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
+
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
+</style>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.toggleText = function(element) {
+        const container = element.closest('.abstract-container');
+        if (element.innerText === '... See More') {
+            element.innerText = 'See Less';
+            container.classList.add('expanded');
+        } else {
+            element.innerText = '... See More';
+            container.classList.remove('expanded');
+        }
+    }
+});
+</script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
+            
+                
+ <div class="project" data-filter="">
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/Haohao.png" />
+        </div>
+        <div class="col-sm-8">
+            
+            <b>RegistrationBooster：Refine Correspondence for Rigid Registration</b>
+            <br />
+            <i><a href="https://www.cgs-network.org/cgi25/" target="_blank" rel="noopener">COMPUTER GRAPHICS INTERNATIONAL 2025</a></i>
+            <!--  -->
+            
+            <br />
+            
+                
+                <a href="">
+                    Haohao Gao
+                </a>, 
+            
+                
+                <a href="">
+                    Hao Yu
+                </a>, 
+            
+                
+                <a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&amp;hl">
+                    Junjie Gao
+                </a>, 
+            
+                
+                <a href="">
+                    <strong>Huibiao Wen</strong>
+                </a>, 
+            
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen<sup>*</sup>
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin
                 </a>, 
             
                 
