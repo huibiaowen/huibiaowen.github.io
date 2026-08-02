@@ -262,6 +262,8 @@ code {
 .profile-image {
     width: 152px;
     height: 152px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 50%;
     position: absolute;
     top: 50%;
